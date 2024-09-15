@@ -1,6 +1,6 @@
 function NotFoundPage(){
     return(
-        <div className="">
+        <div className="text-5xl">
             <h1>404: Page Not Found</h1>
         </div>
     )
