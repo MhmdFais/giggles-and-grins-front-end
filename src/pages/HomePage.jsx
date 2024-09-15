@@ -17,7 +17,7 @@ function HomePage() {
     return(
         <div className="homePageContent">
             <div className="upperPart">
-                <h1>All Items</h1>
+                <p className="text-4xl text-cyan-600">All Items</p>
             </div>
             <div className="itemsCardsContainer">
                 <ul>
