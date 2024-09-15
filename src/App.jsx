@@ -9,18 +9,20 @@ import NotFoundPage from './pages/404'
 
 function App() {
   return (
-    <Router>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/:category" element={<CategoryPage />} />
-          <Route path="/:category/view-item/:id" element={<ItemDetailPage />} />
-          <Route path="/:category/add-item" element={<AddItemPage />} />
-          <Route path="/:category/viewt-item/:id/edit" element={<EditItemPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </Layout>
-    </Router>
+    <div className="mainDiv">
+      <Router>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/:category" element={<CategoryPage />} />
+            <Route path="/:category/view-item/:id" element={<ItemDetailPage />} />
+            <Route path="/:category/add-item" element={<AddItemPage />} />
+            <Route path="/:category/viewt-item/:id/edit" element={<EditItemPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </Layout>
+      </Router>
+    </div>
   )
 }
 
