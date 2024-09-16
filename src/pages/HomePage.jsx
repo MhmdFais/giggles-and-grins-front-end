@@ -38,7 +38,7 @@ function HomePage() {
             <div className="upperPart mb-8">
                 <p className="text-4xl text-cyan-600">All Items</p>
             </div>
-            <div className="itemsCardsContainer grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="itemsCardsContainer grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {itemsArray.map((item) => (
                     <div key={item.id} className="card p-4 border rounded-lg shadow-lg">
                         <img src={imageSrc(item.category_id)} alt={item.name} className="w-full h-48 object-cover rounded-lg mb-4" />

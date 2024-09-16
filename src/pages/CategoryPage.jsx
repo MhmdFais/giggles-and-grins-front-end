@@ -22,6 +22,25 @@ function CategoryPage() {
         fetchCategoryItems();
     }, [category]);
 
+    const imageSrc = (categoryId) => {
+        switch (categoryId) {
+            case 1:
+                return "/assets/photos/boy-dress.webp";
+            case 2:
+                return "/assets/photos/girl-dress.webp";
+            case 3:
+                return "/assets/photos/stroll.webp";
+            case 4:
+                return "/assets/photos/feed.webp";
+            case 5:
+                return "/assets/photos/diapers.webp";
+            case 6:
+                return "/assets/photos/toy.webp";
+            // default:
+            //     return "/assets/photos/default.webp"; 
+        }
+    };
+
     return (
         <div className="categoryPage min-h-screen">
             <div className="upperContainer flex justify-between items-center mb-8">
@@ -37,15 +56,11 @@ function CategoryPage() {
                     </a>
                 </div>
             </div>
-            <div className="itemsCardsContainer grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="itemsCardsContainer grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {itemsArray.length > 0 ? (
                     itemsArray.map((item) => (
                         <div key={item.id} className="card p-4 border rounded-lg shadow-lg">
-                            <img 
-                                src={item.image_url} 
-                                alt={item.name} 
-                                className="w-full h-48 object-cover rounded-lg mb-4" 
-                            />
+                            <img src={imageSrc(item.category_id)} alt={item.name} className="w-full h-48 object-cover rounded-lg mb-4" />
                             <h1 className="text-xl font-bold">{item.name}</h1>
                             <h2 className="text-lg text-gray-700">${item.price}</h2>
                         </div>
