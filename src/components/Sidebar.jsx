@@ -19,7 +19,7 @@ function Sidebar() {
                     <Link
                         to="/boys_clothes"
                         className={`block p-2 rounded-lg transition-transform transform 
-                        ${location.pathname === '/boys_clothes' ? 'scale-110 bg-gray-700' : 'hover:scale-105 hover:bg-gray-600'}`}
+                        ${location.pathname === '/boys' ? 'scale-110 bg-gray-700' : 'hover:scale-105 hover:bg-gray-600'}`}
                     >
                         Boys Clothes
                     </Link>
@@ -28,7 +28,7 @@ function Sidebar() {
                     <Link
                         to="/girls_clothes"
                         className={`block p-2 rounded-lg transition-transform transform 
-                        ${location.pathname === '/girls_clothes' ? 'scale-110 bg-gray-700' : 'hover:scale-105 hover:bg-gray-600'}`}
+                        ${location.pathname === '/girls' ? 'scale-110 bg-gray-700' : 'hover:scale-105 hover:bg-gray-600'}`}
                     >
                         Girls Clothes
                     </Link>
@@ -37,7 +37,7 @@ function Sidebar() {
                     <Link
                         to="/baby_gear"
                         className={`block p-2 rounded-lg transition-transform transform 
-                        ${location.pathname === '/baby_gear' ? 'scale-110 bg-gray-700' : 'hover:scale-105 hover:bg-gray-600'}`}
+                        ${location.pathname === '/babygear' ? 'scale-110 bg-gray-700' : 'hover:scale-105 hover:bg-gray-600'}`}
                     >
                         Baby Gear
                     </Link>
