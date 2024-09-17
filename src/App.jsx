@@ -17,7 +17,7 @@ function App() {
             <Route path="/:category" element={<CategoryPage />} />
             <Route path="/:category/view-item/:id" element={<ItemDetailPage />} />
             <Route path="/:category/add-item" element={<AddItemPage />} />
-            <Route path="/:category/viewt-item/:id/edit" element={<EditItemPage />} />
+            <Route path="/:category/view-item/:id/edit" element={<EditItemPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Layout>

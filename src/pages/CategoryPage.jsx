@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios  from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 function CategoryPage() {
     const { category } = useParams()
@@ -12,7 +12,6 @@ function CategoryPage() {
             const response = await axios.get(`http://localhost:8080/${category}`);
             console.log(response.data)
             setItemsArray(response.data); 
-            //console.log(`http://localhost:8080/${category}`)
         } catch (error) {
             console.error("Error fetching category items:", error.response.data);
         }
@@ -59,11 +58,19 @@ function CategoryPage() {
             <div className="itemsCardsContainer grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {itemsArray.length > 0 ? (
                     itemsArray.map((item) => (
-                        <div key={item.id} className="card p-4 border rounded-lg shadow-lg">
-                            <img src={imageSrc(item.category_id)} alt={item.name} className="w-full h-48 object-cover rounded-lg mb-4" />
+                        <Link 
+                            to={`/${category}/view-item/${item.id}`} 
+                            key={item.id} 
+                            className="card p-4 border rounded-lg shadow-lg hover:bg-gray-100 transition"
+                        >
+                            <img 
+                                src={imageSrc(item.category_id)} 
+                                alt={item.name} 
+                                className="w-full h-48 object-cover rounded-lg mb-4" 
+                            />
                             <h1 className="text-xl font-bold">{item.name}</h1>
                             <h2 className="text-lg text-gray-700">${item.price}</h2>
-                        </div>
+                        </Link>
                     ))
                 ) : (
                     <p className="text-center col-span-3">No items available for this category.</p>
