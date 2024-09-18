@@ -82,7 +82,7 @@ function ItemDetailPage() {
                         {category === 'baby_gear' && (
                             <div className="extraFields">
                                 <p className="text-lg text-gray-700">Weight Capacity: <span className="font-medium">{item.weight_capacity}</span></p>
-                                <p className="text-lg text-gray-700">Brand: <span className="font-medium">{item.brand}</span></p>
+                                <p className="text-lg text-gray-700">Dimensions: <span className="font-medium">{item.dimensions}</span></p>
                             </div>
                         )}
 
@@ -107,7 +107,6 @@ function ItemDetailPage() {
                             <div className="extraFields">
                                 <p className="text-lg text-gray-700">Material: <span className="font-medium">{item.material}</span></p>
                                 <p className="text-lg text-gray-700">Age Range: <span className="font-medium">{item.age_range}</span></p>
-                                <p className="text-lg text-gray-700">Battery Required: <span className="font-medium">{item.battery_required ? 'Yes' : 'No'}</span></p>
                             </div>
                         )}
 
