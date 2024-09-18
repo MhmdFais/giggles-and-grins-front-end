@@ -9,7 +9,7 @@ function CategoryPage() {
     const fetchCategoryItems = async () => {
         try {
             console.log(`Selected categoty -- ${category}`)
-            const response = await axios.get(`http://localhost:8080/${category}`);
+            const response = await axios.get(`${import.meta.env.REACT_APP_API_URL}/${category}`);
             console.log(response.data)
             setItemsArray(response.data); 
         } catch (error) {

@@ -5,7 +5,7 @@ function HomePage() {
     const [itemsArray, setItemsArray] = useState([])
 
     const fecthAPI = async () => {
-        const response = await axios.get("http://localhost:8080/")
+        const response = await axios.get(`${import.meta.env.REACT_APP_API_URL}`)
         console.log(response.data)
         setItemsArray(response.data)
     }

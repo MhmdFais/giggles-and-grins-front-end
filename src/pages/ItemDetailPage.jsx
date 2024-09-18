@@ -10,7 +10,7 @@ function ItemDetailPage() {
     // Fetch item details
     const fetchItem = async () => {
         try {
-            const response = await axios.get(`http://localhost:8080/${category}/view-item/${id}`);
+            const response = await axios.get(`${import.meta.env.REACT_APP_API_URL}/${category}/view-item/${id}`);
             console.log(response.data);
             setItem(response.data);
         } catch (error) {
@@ -27,7 +27,7 @@ function ItemDetailPage() {
     const handleDelete = async () => {
         if (window.confirm("Are you sure you want to delete this item?")) {
             try {
-                await axios.delete(`http://localhost:8080/${category}/view-item/${id}`);
+                await axios.delete(`${import.meta.env.REACT_APP_API_URL}/${category}/view-item/${id}`);
                 alert("Item deleted successfully.");
                 navigate('/');
             } catch (error) {

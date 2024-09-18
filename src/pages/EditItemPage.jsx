@@ -34,7 +34,7 @@ function EditItemPage() {
    
     const fetchItem = async () => {
         try {
-            const response = await axios.get(`http://localhost:8080/${category}/view-item/${id}/edit`)
+            const response = await axios.get(`${import.meta.env.REACT_APP_API_URL}/${category}/view-item/${id}/edit`)
             console.log(response.data);
             setItem(response.data);
             // setFormData({

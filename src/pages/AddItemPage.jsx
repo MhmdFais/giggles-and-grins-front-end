@@ -50,7 +50,7 @@ function AddItemPage() {
                 category_id: parseInt(formData.category_id),
             };
             console.log("Form data before sending:", payload);
-            const response = await axios.post(`http://localhost:8080/${category}/add-item`, payload);
+            const response = await axios.post(`${import.meta.env.REACT_APP_API_URL}/${category}/add-item`, payload);
             console.log(response.data);
             navigate(`/${category}`);
         } catch (error) {
