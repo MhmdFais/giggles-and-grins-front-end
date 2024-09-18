@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 
 function ItemDetailPage() {
     const [item, setItem] = useState({});
     const { category, id } = useParams();
+    const navigate = useNavigate();
 
     // Fetch item details
     const fetchItem = async () => {
@@ -20,6 +21,22 @@ function ItemDetailPage() {
     useEffect(() => {
         fetchItem();
     }, [category, id]);
+
+
+    // Delete item
+    const handleDelete = async () => {
+        if (window.confirm("Are you sure you want to delete this item?")) {
+            try {
+                await axios.delete(`http://localhost:8080/${category}/view-item/${id}`);
+                alert("Item deleted successfully.");
+                navigate('/');
+            } catch (error) {
+                console.error("Error deleting item:", error.response?.data || "Unknown error");
+                alert("Failed to delete item.");
+            }
+        }
+    };
+
 
     const imageSrc = (category) => {
         switch (category) {
@@ -111,13 +128,20 @@ function ItemDetailPage() {
                         )}
 
                         {/* Edit Button */}
-                        <div className="editButtonContainer mt-6">
+                        <div className="editButtonContainer mt-6 flex gap-6">
                             <Link 
                                 to={`/${category}/view-item/${id}/edit`} 
                                 className="bg-cyan-600 text-white px-6 py-3 rounded-md hover:bg-cyan-700 text-lg"
                             >
                                 Edit Item
                             </Link>
+                            {/* Delete Button */}
+                            <button 
+                                onClick={handleDelete} 
+                                className="bg-red-600 text-white px-6 py-2.5 rounded-md hover:bg-red-700 text-lg"
+                            >
+                                Delete Item
+                            </button>
                         </div>
                     </div>
                 </div>
